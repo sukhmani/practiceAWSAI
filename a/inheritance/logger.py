@@ -1,39 +1,21 @@
-class Person:
-    def __init__(self, name, age):
-       self.name = name
-       self.age = age
-       self.hobbies = ["reading", "coding"]
+class Profile:
+    def __init__(self, email, password):
+       self.__email = email
+       self.__password = password
+
+    def setemail(self, email):
+        self.__email = email
+        
+    def chkpass(self, pwd):
+        return pwd == self.__password
+        
+    def displayemail(self):
+        return self.__email
        
 
-    def greet(self):
-        print("Hello my name is" +str(self.name)+ " and I am" +str(self.age) +" years old.")
-
-    def is_adult(self):
-        return self.age >= 18
-    
-    def setage(self, nage):
-        self.age = nage
-
-    def showhobbies(self):
-        print(str(self.hobbies))
-
-    def addhobby(self, addh):
-        self.hobbies.append(addh)
-
-    def removehobby(self, removeh):
-        self.hobbies.remove(removeh)
-    
-
-p = Person("Sukhmani", 25)
-p.greet()
-print(p.is_adult())
-p.setage(21)
-
-
-p.addhobby("a")
-p.addhobby("b")
-p.greet()
-p.removehobby("a")
-p.showhobbies()
-
-
+p = Profile("sukhmani@example.com", "secure123")
+print(p.displayemail())
+print(p.chkpass("wrongpass"))
+print(p.chkpass("secure123"))
+p.setemail("newemail@example.com")
+print(p.displayemail())
